@@ -17,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //设置通知
+    UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+    [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
 }
 
 // 1.只要调用了[self presentViewController:second animated:YES completion:nil];方法
@@ -25,6 +29,9 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    //图标数字
+    [UIApplication sharedApplication].applicationIconBadgeNumber=10;
+    
     FFSecondViewController *second=[[FFSecondViewController alloc]init];
     
     //second.modalPresentationStyle=UIModalPresentationFormSheet;
